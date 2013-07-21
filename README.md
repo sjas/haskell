@@ -6,7 +6,7 @@ Doing the NPP lab exercises for fun and profit.
 
     - `Tests` contains test function
     - `Main` contains test code for fast validation
-    - and all other files are implementations
+    - the other files are actual implementations
     
 ## compile
 
