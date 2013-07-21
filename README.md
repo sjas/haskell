@@ -4,9 +4,9 @@ Doing the NPP lab exercises for fun and profit.
 
 ## contents
 
-    - `Tests` contains test function
-    - `Main` contains test code for fast validation
-    - the other files are actual implementations
+    - `Test.hs` contains test function
+    - `Main.hs` contains test code for fast validation
+    - the other .hs files are actual implementations
     
 ## compile
 
