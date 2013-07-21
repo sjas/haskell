@@ -2,6 +2,7 @@
 -- lab 1-1
 --
 module EinsEins where
+import Char as Char (toUpper)
 
 -- 1
 -- double: double value of an integer
@@ -82,3 +83,25 @@ implies :: Bool -> Bool -> Bool
 -- GOOD STYLE
 implies True False = False
 implies _ _        = True
+
+-- 11
+-- hundreds: take an Int and return to '100' digit, else 0
+-- hundreds 1234 -> 2
+-- hundreds 24 -> 0
+-- hundreds 321 -> 3
+hundreds :: Int -> Int
+hundreds a | a < 100 = 0
+           | otherwise = div (rem a 1000) 100
+
+-- 12
+-- upperCase: convert a lowercase Char to uppercase, else leave unchanged and return
+-- upperCase a -> A
+-- upperCase B -> B
+-- uppercase 2 -> error
+-- HELPER FUNCTION:
+-- isSmall: returns True if argument is lowercase Char
+isSmall :: Char -> Bool
+isSmall x = 'a' <= x && x <= 'z'
+upperCase :: Char -> Char
+upperCase a | isSmall a = toUpper a
+            | otherwise = a
