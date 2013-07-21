@@ -1,5 +1,5 @@
 --
--- lab 1-1
+-- lab 1.1
 --
 module EinsEins where
 import Char as Char (toUpper)
@@ -105,3 +105,28 @@ isSmall x = 'a' <= x && x <= 'z'
 upperCase :: Char -> Char
 upperCase a | isSmall a = toUpper a
             | otherwise = a
+
+-- 13
+-- middle: return middle char of non-empty string
+-- middle "wxAyz" -> 'A'
+-- middle "wxBy" -> 'B'
+-- HELPER FUNCTIONS:
+-- arrayLength: return array length
+    -- builtin 'length' could be used as well
+arrayLength :: [Char] -> Int
+arrayLength [] = 0
+arrayLength x = 1 + arrayLength(tail x)
+-- middleIdx: return middle index of a non-empty string, or the position left of it for strings with even-numbered length, remember index starts at '0'
+middleIdx :: [Char] -> Int
+-- infix notation
+{-middleIdx x = (arrayLength x) `div` 2-}
+middleIdx x = div (arrayLength x) 2
+middle :: [Char] -> Char
+middle x = x !! (middleIdx x)
+
+-- 14
+-- substring: return true if string b is substring of a, a has no duplicated elements
+-- substring "asdfaXYZa" "XYZ" -> True
+-- substring "asdfaXZa" "XYZ" -> False
+substring :: [Char] -> [Char] -> Bool
+substring a b = 

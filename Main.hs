@@ -4,6 +4,7 @@
 
 module Main (main) where
 import EinsEins
+import EinsZwei
 import Test
 
 main :: IO ()
@@ -30,5 +31,21 @@ main
     chk(hundreds 1234 == 2)
     chk(hundreds 24 == 0)
     chk(hundreds 321 == 3)
+    chk(isSmall 'a' == True)
+    chk(isSmall 'B' == False)
     chk(upperCase 'a' == 'A')
     chk(upperCase 'B' == 'B')
+    chk(arrayLength "asdf" == 4)
+    chk(arrayLength "" == 0)
+    chk(arrayLength "1234567890" == 10)
+-- after I succeeded with a better test method implementation, ofc the new one will be used
+    chkk (arrayLength "asdf") 4
+    chkk (arrayLength "") 0
+    chkk (arrayLength "1234567890") 10
+    -- test of internal function 'length'
+    chkk (length "1234567890") 10
+    chkk (middleIdx "asdfg") 2
+    chkk (middle "wxAyz") 'A'
+    chkk (middle "wxBy") 'B'
+    chkk (substring "asdfaXYZa" "XYZ") True
+    chkk (substring "asdfaXZa" "XYZ") False

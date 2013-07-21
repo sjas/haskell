@@ -1,12 +1,16 @@
 --
--- Contains just the single test method, to separate the code logically.
+-- Contains the test methods, to separate the logical implementation, the execution and the test code logically.
 --
 
 module Test where
 
--- TEST METHOD
--- lacks type definition because I don't know how to 'type' it yet.
--- thus letting haskell inferring it.
+-- first test method
+chk :: Bool -> IO ()
 chk a = if a == True 
         then print "OK"
-        else print "----- TEST FAIL -----"
+        else print "--- TEST FAIL ---"
+
+-- another, more general test method
+chkk :: Ord x => x -> x -> IO ()
+chkk a b | a == b = print "OK"
+        | otherwise = print "--- TEST FAIL ---"
