@@ -12,6 +12,8 @@ main :: IO ()
 main 
     = do 
 
+    print "Starting Tests..."
+
     -- 1.1
     {-chk(double 2 == 4)-}
     {-chk(ratio 2.5 1.5 == 4.0)-}
