@@ -115,18 +115,18 @@ upperCase a | isSmall a = toUpper a
     -- builtin 'length' could be used as well
 arrayLength :: [Char] -> Int
 arrayLength [] = 0
-arrayLength x = 1 + arrayLength(tail x)
+arrayLength xs = 1 + arrayLength(tail xs)
 -- middleIdx: return middle index of a non-empty string, or the position left of it for strings with even-numbered length, remember index starts at '0'
 middleIdx :: [Char] -> Int
 -- infix notation
-{-middleIdx x = (arrayLength x) `div` 2-}
-middleIdx x = div (arrayLength x) 2
+{-middleIdx xs = (arrayLength xs) `div` 2-}
+middleIdx xs = div (arrayLength xs) 2
 middle :: [Char] -> Char
-middle x = x !! (middleIdx x)
+middle xs = xs !! (middleIdx xs)
 
 -- 14
 -- substring: return true if string b is substring of a, a has no duplicated elements
 -- substring "asdfaXYZa" "XYZ" -> True
 -- substring "asdfaXZa" "XYZ" -> False
 substring :: [Char] -> [Char] -> Bool
-substring a b = 
+substring xs ys = and [elem y xs | y <- ys]
