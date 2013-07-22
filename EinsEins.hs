@@ -48,9 +48,11 @@ averageThree a b c = ( fromIntegral ((+) ((+) a b) c) ) / 3
 
 -- 7
 -- arithmeticSum: sum up, use formula equation, dont implement sum stuff yourself
--- arithmeticSum 2 3 4 -> 18.0
-arithmeticSum :: Float -> Float -> Float -> Float
-arithmeticSum a n d = (n * ((2 * a) + ((n - 1) * d))) / 2
+-- arithmeticSum 2 3 4 -> 18
+-- THE IMPLEMENTATION IS CORRECT
+-- BUT MAYBE THE CALCULATION BEFORE NOT
+arithmeticSum :: Int -> Int -> Int -> Int
+arithmeticSum a n d = (n * ((2 * a) + ((n - 1) * d))) `div` 2
 
 -- 8
 -- inRange1: check if x lies between a,b or b,a
