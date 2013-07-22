@@ -30,4 +30,4 @@ comments and corresponding testcode, which provided fast feedback when running t
 (compared to coding solely in the REPL and closing the interpreter), and not needing to reload scripts after having made 
 changes to it AND running them in separate step.
 
-Maybe this will help somebody with similar problems, I would not want to have to work without this now.
+Maybe this will help somebody with similar problems, I would not want to have to work without this for now.
