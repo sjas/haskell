@@ -16,6 +16,8 @@ Since code is being put into Modules, that are automically loaded, only the main
     
 This line being put to a script or a shortcut of your editor and you are good to go. Forget reloads in the REPL.
 
+## comment
+
 Using a Mainfile containing imperative testcode with printlines to STDOUT was put to use, since 
 full blown unit testing would have been overhead IMHO. This here is after all just like playing in a sandbox.
 The approach would have been trivial to implement if the course introduction or any other documention on google 
