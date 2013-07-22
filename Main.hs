@@ -62,3 +62,20 @@ main
     {-chkk (sumUpTime [(5,18), (3, 27), (3, 25)]) (12, 10)-}
 
     -- 1.3
+    chkk (naturalRec 20) 19
+    chkk (oddRec 4) 7
+    chkk (oddRec 6) 11
+    chkk (sumRec 4) 10
+    chkk (sumRec 5) 15
+    chkk (factRec 0) 1
+    chkk (factRec 1) 1
+    chkk (factRec 2) 2
+    chkk (factRec 3) 6
+    chkk (factRec 4) 24
+    chkk (factRec 5) 120
+    chkk (sumFact 0) 1
+    chkk (sumFact 1) 2
+    chkk (sumFact 2) 4
+    chkk (sumFact 3) 10
+    chkk (sumFact 4) 34
+    chkk (sumFact 5) 154
