@@ -6,6 +6,7 @@ import EinsEins
 import EinsZwei
 import EinsDrei
 import EinsVier
+import EinsFuenf
 import Test
 
 main :: IO ()
@@ -132,3 +133,9 @@ main
     chkk (superFibo 4) 3
     chkk (superFibo 5) 5
     chkk (superFibo 6) 8
+    chkk (sumFunction intSqr 1) 1
+    chkk (sumFunction intSqr 4) 5
+    chkk (sumFunction intSqr 5) 7
+
+    -- 1.5
+    

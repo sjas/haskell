@@ -29,4 +29,9 @@ superFibo :: Int -> Int
 superFibo n = snd (fiboTwo n)
 
 -- 3
--- 
+-- sumFunction: take a function f and a value n as arguments, and return the sum of f 0 .. f n
+-- sumFunction intSqr 1 -> 1
+-- sumFunction intSqr 4 -> 5
+-- sumFunction intSqr 15 -> 10
+sumFunction f 0 = f 0
+sumFunction f n = f n + sumFunction f (n - 1)
