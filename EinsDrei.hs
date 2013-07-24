@@ -112,5 +112,3 @@ maxfRec f n | n == 0 = f 0
 oneZero :: (Int -> Int) -> Int -> Bool
 oneZero f n | n == 0 = if (f 0 == 0) then True else False
             | otherwise = (f n == 0) || oneZero f (n-1)
-
-

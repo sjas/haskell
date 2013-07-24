@@ -5,6 +5,7 @@ module Main (main) where
 import EinsEins
 import EinsZwei
 import EinsDrei
+import EinsVier
 import Test
 
 main :: IO ()
@@ -110,3 +111,6 @@ main
     chkk (maxfRec intSqr 16) 4
     chkk (oneZero sumRec 10) True
     chkk (oneZero factRec 10) False
+
+    -- 1.4
+    
