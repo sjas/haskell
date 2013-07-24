@@ -11,7 +11,7 @@ convertMinToSec (a, b) = (a * 60) + b
 -- convertSecToMin: converts minutes to seconds
 -- convertSectoMin 80 -> (1, 20)
 convertSecToMin :: Int -> (Int, Int)
-convertSecToMin x = (div x 60, mod x 60)
+convertSecToMin x = (div x 60, rem x 60)
 -- sumUpTime: calculate sum of time
 -- sumUpTime [(5,18), (3, 27), (3, 25)]) -> (12, 10)
 sumUpTime :: [(Int, Int)] -> (Int, Int)

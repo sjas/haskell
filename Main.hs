@@ -113,4 +113,16 @@ main
     chkk (oneZero factRec 10) False
 
     -- 1.4
-    
+    chkk (fibo 0) 0
+    chkk (fibo 1) 1
+    chkk (fibo 2) 1
+    chkk (fibo 3) 2
+    chkk (fibo 4) 3
+    chkk (fibo 5) 5
+    chkk (fibo 6) 8
+    chkk (fiboTwo 1) (0, 1)
+    chkk (fiboTwo 2) (1, 1)
+    chkk (fiboTwo 3) (1, 2)
+    chkk (fiboTwo 4) (2, 3)
+    chkk (fiboTwo 5) (3, 5)
+    chkk (fiboTwo 6) (5, 8)
