@@ -25,6 +25,8 @@ fiboTwoHelp n i (a, b) | n == i = (a, b)
 -- fiboTwo HAS to use the next function, part of the task
 step :: (Int, Int) -> (Int, Int)
 step (x, y) = (y, (x + y))
+superFibo :: Int -> Int
+superFibo n = snd (fiboTwo n)
 
 -- 3
 -- 
