@@ -14,6 +14,7 @@ main
     print "Starting Tests..."
 
     -- 1.1
+    chk(double 0 == 0)
     chk(double 2 == 4)
     chk(ratio 2.5 1.5 == 4.0)
     chk(hyp 3 4 == 5)
@@ -96,3 +97,16 @@ main
     chkk (rangeProduct (-1) 1) 0
     chkk (rangeProduct (-5) (-3)) (-60)
     chkk (rangeProduct (-5) (-2)) 120
+    chkk (intSqr 1) 1
+    chkk (intSqr 2) 1
+    chkk (intSqr 3) 1
+    chkk (intSqr 4) 2
+    chkk (intSqr 5) 2
+    chkk (intSqr 15) 3
+    chkk (intSqr 16) 4
+    chkk (maxfRec intSqr 0 ) 0
+    chkk (maxfRec intSqr 9 ) 3
+    chkk (maxfRec intSqr 15) 3
+    chkk (maxfRec intSqr 16) 4
+    chkk (oneZero sumRec 10) True
+    chkk (oneZero factRec 10) False
