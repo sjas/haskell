@@ -21,7 +21,10 @@ fiboTwo :: Int -> (Int, Int)
 fiboTwo n = fiboTwoHelp n 1 (0, 1)
 fiboTwoHelp :: Int -> Int -> (Int, Int) -> (Int, Int)
 fiboTwoHelp n i (a, b) | n == i = (a, b)
-                       | otherwise = fiboTwoHelp n (i + 1) (b, (a + b))
+                       | otherwise = fiboTwoHelp n (i + 1) (step (a, b))
+-- fiboTwo HAS to use the next function, part of the task
+step :: (Int, Int) -> (Int, Int)
+step (x, y) = (y, (x + y))
 
 -- 3
---
+-- 
