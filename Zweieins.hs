@@ -35,3 +35,15 @@ type Table = (Int, Int, Int)
 listTables :: Int -> [Table]
 listTables n | n<0 = []
              | otherwise = [(a, b, c) | a<-[0..n], b<-[0..n], c<-[0..n], c==a*b ]
+
+-- 3
+-- addPairwise: take xs,ys and add corresponding elements
+-- addPairwise [1, 2] [3, 4, 5] -> [4, 6]
+-- addPairwise [] [1, 2, 3] -> []
+-- addPairwise [(-7), (-8), (-9)] [10, 11, 12] -> [3, 3, 3]
+addPairwise :: [Int] -> [Int] -> [Int]
+addPairwise [] _ = []
+addPairwise _ [] = []
+addPairwise xs ys = [x + y | (x, y) <- zip xs ys]
+
+-- 4
