@@ -172,3 +172,5 @@ main
     -- 2.2
     chkk (theElem [2..22] 17) True
     chkk (theElem [2..22] 1) False
+    chkk (theLast [1..3]) 3
+    chkk (theLenght [1..100]) 100
