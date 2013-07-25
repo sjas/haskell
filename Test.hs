@@ -11,7 +11,7 @@ chk a = if a == True
         else returnMode failString
 
 -- another, more general test method
-chkk :: Ord x => x -> x -> IO ()
+chkk :: Eq a => a -> a -> IO ()
 chkk a b | a == b = returnMode okString
          | otherwise = returnMode failString
 
@@ -28,5 +28,5 @@ failString = "### FAIL ### "
 -- to easier change output design, choose one version
 returnMode :: String -> IO ()
 {-returnMode n = print n-}
-{-returnMode n = putStr n-}
-returnMode n = putStrLn n
+returnMode n = putStr n
+{-returnMode n = putStrLn n-}
