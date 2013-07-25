@@ -56,3 +56,9 @@ subList xs (i, j) | j < i = error "i > j, cannot be..."
                   | j >= length xs || i <= 0 = error "Arrayjndex j out of bounds."
                   | i == j = xs !! i:[]
                   | otherwise = [ xs!!k | k<-[i..j] ]
+subList' :: [a] -> (Int, Int) -> [a]
+subList' xs (i, j) | j < i = error "i > j, cannot be..."
+                   | i >= length xs || i <= 0 = error "ArrayIndex i out of bounds."
+                   | j >= length xs || i <= 0 = error "Arrayjndex j out of bounds."
+                   | i == j = xs !! i:[]
+                   | otherwise = drop i (take (j+1) xs)
