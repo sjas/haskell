@@ -78,3 +78,12 @@ append :: Ord a => [a] -> [a] -> [a]
 append [] [] = []
 append [] ys = (head ys) : (append [] (tail ys))
 append xs ys = (head xs) : (append (tail xs) ys)
+
+-- 9
+-- normal: make a list to a set
+-- normal [] -> []
+-- normal [1, 1, 2, 2, 3, 3, 3] -> [1, 2, 3]
+{-normal :: Ord a => [a] -> [a]-}
+{-normal [] = []-}
+{-normal xs = normalHelp xs []-}
+{-normalHelp xs ys = normalHelp (filter (theElem xs x)-}
