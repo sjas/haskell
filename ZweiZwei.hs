@@ -83,7 +83,12 @@ append xs ys = (head xs) : (append (tail xs) ys)
 -- normal: make a list to a set
 -- normal [] -> []
 -- normal [1, 1, 2, 2, 3, 3, 3] -> [1, 2, 3]
-{-normal :: Ord a => [a] -> [a]-}
-{-normal [] = []-}
-{-normal xs = normalHelp xs []-}
-{-normalHelp xs ys = normalHelp (filter (theElem xs x)-}
+normal :: [Int] -> [Int]
+normal [] = []
+normal xs = (head xs) : (normal (remove (head xs) (tail xs)))
+
+-- 10
+-- inter: 
+
+-- 11
+-- theUnion: 

@@ -180,5 +180,5 @@ main
     chkk (subst 4 5 ([1..5] ++ [1..5])) [1,2,3,5,5,1,2,3,5,5]
     chkk (rev [1..3]) (reverse [1..3])
     chkk (append [1..3] [4..6]) [1..6]
-    {-chkk (normal []) []-}
-    {-chkk (normal [1, 1, 2, 2, 3, 3, 3]) [1, 2, 3]-}
+    chkk (normal []) []
+    chkk (normal [1, 1, 2, 2, 3, 3, 3]) [1, 2, 3]
