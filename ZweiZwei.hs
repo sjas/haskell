@@ -65,7 +65,16 @@ subst m n xs | head xs == m = n : subst m n (tail xs)
 -- rev: reverse a list
 -- use pattern matching
 -- rev [1..3] -> [3, 2, 1]
-{-rev :: Ord a => [a] -> [a]-}
-{-rev :: [Int] -> [Int]-}
+rev :: Ord a => [a] -> [a]
 rev [] = []
 rev xs = last xs : (rev (init xs))
+
+-- 8
+-- append: concatenate two lists xs,ys returned as a new list
+-- use pattern matching, and leave xs,ys unchanged (??)
+-- FIXME?
+-- append [1..3] [4..6] -> [1..6]
+append :: Ord a => [a] -> [a] -> [a]
+append [] [] = []
+append [] ys = (head ys) : (append [] (tail ys))
+append xs ys = (head xs) : (append (tail xs) ys)
