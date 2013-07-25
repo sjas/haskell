@@ -2,12 +2,16 @@
 -- This file contains tests for the haskell files in the same folder.
 --
 module Main (main) where
+
+import Test
+
 import EinsEins
 import EinsZwei
 import EinsDrei
 import EinsVier
 import EinsFuenf
-import Test
+
+import ZweiEins
 
 main :: IO ()
 main 
@@ -138,4 +142,15 @@ main
     chkk (sumFunction intSqr 5) 7
 
     -- 1.5
-    
+    {-chkk (hanoi 0) []-}
+    {-chkk (hanoi 2) [('a', 'b'), ('a', 'c'), ('b', 'c')]-}
+
+    -- 2.1
+    chkk (isEven 1) False
+    chkk (isEven 0) True
+    chkk (isEven (-2)) True
+    chkk (listEvens 13 29) [28, 26, 24, 22, 20, 18, 16, 14]
+    print (listEvens 13 29)
+    chkk (listEvens 20 31) [30, 28, 26, 24, 22, 20]
+    chkk (listEvens 31 20) []
+    chkk (listEvens (-29) (-22)) [-22, -24, -26, - 28]
