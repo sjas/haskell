@@ -83,12 +83,18 @@ append xs ys = (head xs) : (append (tail xs) ys)
 -- normal: make a list to a set
 -- normal [] -> []
 -- normal [1, 1, 2, 2, 3, 3, 3] -> [1, 2, 3]
+-- fixme: use general type instead of Int
 normal :: [Int] -> [Int]
 normal [] = []
 normal xs = (head xs) : (normal (remove (head xs) (tail xs)))
 
 -- 10
--- inter: 
+-- inter: intersect xs ys
+{-inter :: [Int] -> [Int]-}
+{-inter [] _ = []-}
+{-inter _ [] = []-}
+{--- fixme-}
+{-inter xs ys = [k | ]-}
 
 -- 11
--- theUnion: 
+-- theUnion: create union 
