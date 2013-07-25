@@ -60,3 +60,12 @@ subst :: Ord a => a -> a -> [a] -> [a]
 subst _ _ [] = []
 subst m n xs | head xs == m = n : subst m n (tail xs)
              | otherwise = (head xs) : (subst m n (tail xs))
+
+-- 7
+-- rev: reverse a list
+-- use pattern matching
+-- rev [1..3] -> [3, 2, 1]
+{-rev :: Ord a => [a] -> [a]-}
+{-rev :: [Int] -> [Int]-}
+rev [] = []
+rev xs = last xs : (rev (init xs))
