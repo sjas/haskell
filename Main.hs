@@ -12,6 +12,7 @@ import EinsVier
 import EinsFuenf
 
 import ZweiEins
+import ZweiZwei
 
 main :: IO ()
 main 
@@ -167,3 +168,5 @@ main
     chkk (together [1, 2, 3, 4]) [(1, 2), (2, 3), (3, 4)]
     chkk (together ['a', 'b', 'c']) [('a', 'b'), ('b', 'c')]
     chkk (together ["compass", "name", "line"]) [("compass", "name"), ("name", "line")]
+
+    -- 2.2
