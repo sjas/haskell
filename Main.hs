@@ -174,3 +174,5 @@ main
     chkk (theElem [2..22] 1) False
     chkk (theLast [1..3]) 3
     chkk (theLenght [1..100]) 100
+    chkk (theNth 2 [12..15]) 14
+    chkk (nth 2 [12..15]) 14
