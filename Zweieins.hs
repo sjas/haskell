@@ -47,3 +47,12 @@ addPairwise _ [] = []
 addPairwise xs ys = [x + y | (x, y) <- zip xs ys]
 
 -- 4
+-- subList: take list xs and indices (i,j) return list [xs_i .. xs_j] for 0<=i<=j<=length(xs-1)
+-- subList [0, 1, 2, 3, 4, 5] (2, 4) -> [2, 3, 4]
+-- subList ['a', 'b', 'c', 'd', 'e'] (1, 3) -> ['b', 'c', 'd']
+subList :: [a] -> (Int, Int) -> [a]
+subList xs (i, j) | j < i = error "i > j, cannot be..."
+                  | i >= length xs || i <= 0 = error "ArrayIndex i out of bounds."
+                  | j >= length xs || i <= 0 = error "Arrayjndex j out of bounds."
+                  | i == j = xs !! i:[]
+                  | otherwise = [ xs!!k | k<-[i..j] ]

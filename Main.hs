@@ -158,3 +158,7 @@ main
     chkk (addPairwise [1, 2] [3, 4, 5]) [4, 6]
     chkk (addPairwise [] [1, 2, 3]) []
     chkk (addPairwise [(-7), (-8), (-9)] [10, 11, 12]) [3, 3, 3]
+    chkk (subList [0, 1, 2, 3, 4, 5] (2, 4)) [2, 3, 4]
+    chkk (subList [0, 1, 2, 3, 4, 5] (2, 2)) [2]
+    chkk (subList ['a', 'b', 'c', 'd', 'e'] (1, 3)) ['b', 'c', 'd']
+    {-print (subList [] (3,1))-}
