@@ -11,7 +11,8 @@ module ZweiEins where
 -- listEvens (-29) (-22) -> [-22, -24, -26, - 28]]
 listEvens :: Int -> Int -> [Int]
 listEvens a b | a > b = []
-              | otherwise = filter (\x -> x>0) (x <- [b..a])
+              | otherwise = listEvensHelp (reverseList [a..b])
+listEvensHelp xs = filter (\x -> isEven x) xs
 -- isEven: check if given Int is even
 -- isEven 1 -> False
 -- isEven 0 -> True
@@ -19,4 +20,12 @@ listEvens a b | a > b = []
 isEven :: Int -> Bool
 isEven n | rem n 2 == 0 = True
          | otherwise = False
-test x = asdf . asdf
+--reverseList: for given xs return reversed list
+--reverseList [1,2,3] -> [3,2,1]
+reverseList :: [Int] -> [Int]
+reverseList xs = reverseListHelp xs []
+reverseListHelp :: [Int] -> [Int] -> [Int]
+reverseListHelp [] xs = xs
+reverseListHelp xs ys = reverseListHelp (tail xs) ((head xs):ys)
+
+-- 2

@@ -149,8 +149,9 @@ main
     chkk (isEven 1) False
     chkk (isEven 0) True
     chkk (isEven (-2)) True
+    chkk (reverseList [1, 2, 3]) [3, 2, 1]
     chkk (listEvens 13 29) [28, 26, 24, 22, 20, 18, 16, 14]
-    print (listEvens 13 29)
     chkk (listEvens 20 31) [30, 28, 26, 24, 22, 20]
     chkk (listEvens 31 20) []
-    chkk (listEvens (-29) (-22)) [-22, -24, -26, - 28]
+    chkk (listEvens (-29) (-22)) [-22, -24, -26, -28]
+    {-chkk (listTables )-}
