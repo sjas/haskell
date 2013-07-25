@@ -29,3 +29,9 @@ reverseListHelp [] xs = xs
 reverseListHelp xs ys = reverseListHelp (tail xs) ((head xs):ys)
 
 -- 2
+-- listTables: take Int n>0 and return triplets with a,b,c>=n and c=a*b
+-- use:
+type Table = (Int, Int, Int)
+listTables :: Int -> [Table]
+listTables n | n<0 = []
+             | otherwise = [(a, b, c) | a<-[0..n], b<-[0..n], c<-[0..n], c==a*b ]
