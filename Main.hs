@@ -170,3 +170,5 @@ main
     chkk (together ["compass", "name", "line"]) [("compass", "name"), ("name", "line")]
 
     -- 2.2
+    chkk (theElem [2..22] 17) True
+    chkk (theElem [2..22] 1) False
