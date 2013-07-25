@@ -44,3 +44,11 @@ nth :: Ord a => Int -> [a] -> a
 nth n xs | n < 0 = error "index below 0"
          | n >= (theLenght xs) = error "index bigger than array"
          | otherwise = theNth n xs
+
+-- 5
+-- remove: delete all occurences of n in xs
+-- remove 4 ([1..5] ++ [1..5]) -> [1,2,3,5,1,2,3,5]
+remove :: Ord a => a -> [a] -> [a]
+remove _ [] = []
+remove x xs | head xs == x = remove x (tail xs)
+            | otherwise = (head xs) : (remove x (tail xs))

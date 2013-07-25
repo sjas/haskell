@@ -176,3 +176,4 @@ main
     chkk (theLenght [1..100]) 100
     chkk (theNth 2 [12..15]) 14
     chkk (nth 2 [12..15]) 14
+    chkk (remove 4 ([1..5] ++ [1..5])) [1,2,3,5,1,2,3,5]
