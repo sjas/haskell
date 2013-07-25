@@ -62,3 +62,12 @@ subList' xs (i, j) | j < i = error "i > j, cannot be..."
                    | j >= length xs || i <= 0 = error "Arrayjndex j out of bounds."
                    | i == j = xs !! i:[]
                    | otherwise = drop i (take (j+1) xs)
+
+-- 5
+-- together: pair elements of xs for xs>1
+-- together [1, 2] -> [(1, 2)]
+-- together ['a', 'b', 'c'] -> [('a', 'b'), ('b', 'c')]
+-- together ["compass", "name", "line"] -> [("compass", "name"), ("name", "line")]
+together :: [a] -> [(a,a)]
+together xs | length xs < 2 = error "list too small"
+            | otherwise = zip xs (tail xs)

@@ -164,3 +164,6 @@ main
     chkk (subList' [0, 1, 2, 3, 4, 5] (2, 4)) [2, 3, 4]
     chkk (subList' [0, 1, 2, 3, 4, 5] (2, 2)) [2]
     chkk (subList' ['a', 'b', 'c', 'd', 'e'] (1, 3)) ['b', 'c', 'd']
+    chkk (together [1, 2, 3, 4]) [(1, 2), (2, 3), (3, 4)]
+    chkk (together ['a', 'b', 'c']) [('a', 'b'), ('b', 'c')]
+    chkk (together ["compass", "name", "line"]) [("compass", "name"), ("name", "line")]
