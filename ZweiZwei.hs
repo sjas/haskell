@@ -52,3 +52,11 @@ remove :: Ord a => a -> [a] -> [a]
 remove _ [] = []
 remove x xs | head xs == x = remove x (tail xs)
             | otherwise = (head xs) : (remove x (tail xs))
+
+-- 6
+-- subst: replace all m with n in xs
+-- subst 4 5 ([1..5] ++ [1..5]) -> [1,2,3,5,5,1,2,3,5,5]
+subst :: Ord a => a -> a -> [a] -> [a]
+subst _ _ [] = []
+subst m n xs | head xs == m = n : subst m n (tail xs)
+             | otherwise = (head xs) : (subst m n (tail xs))
