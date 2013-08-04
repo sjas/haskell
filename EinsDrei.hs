@@ -103,8 +103,10 @@ intSqrHelp m n | m == 0 = 0 -- added 0 as possibility, so function can be used i
 -- intSqr will here be used, as f.
 -- maxfRec (
 maxfRec :: (Int -> Int) -> Int -> Int
-maxfRec f n | n == 0 = f 0
-            | otherwise = max (f n) (maxfRec f (n - 1))
+{-maxfRec f n | n == 0 = f 0-}
+            {-| otherwise = max (f n) (maxfRec f (n - 1))-}
+maxfRec f 0 = f 0
+maxfRec f n = max (f n) (maxfRec f (n - 1))
 
 --11
 -- oneZero: given an (Int -> Int) function f and an Int n, return True if one or more values of f 0 .. f n return 0

@@ -14,6 +14,8 @@ import EinsFuenf
 import ZweiEins
 import ZweiZwei
 
+import PracticePaper
+
 main :: IO ()
 main 
     = do 
@@ -185,4 +187,13 @@ main
     -- fixme
 
     -- 2.3
-    
+
+    -- Practice Paper
+    -- 1a
+    chkk (isaprefix [] [1..10]) True
+    chkk (isaprefix [5, 6, 7] [5, 6, 7, 8, 9]) True
+    chkk (isaprefix [5, 6, 7] [4, 5, 6, 7, 8, 9]) False
+    chkk (isaprefix ["Hello", "Haskell"] ["Hello", "Haskell", "F2"]) True
+    chkk (isasublist [1, 2, 3] [0, 1, 2, 3, 4]) True
+    chkk (isasublist [1, 2, 3] [1, 2, 10, 2, 3, 11]) False
+    chkk (isasublist "Chip" "Fish&Chips") True
