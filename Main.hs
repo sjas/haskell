@@ -194,6 +194,11 @@ main
     chkk (isaprefix [5, 6, 7] [5, 6, 7, 8, 9]) True
     chkk (isaprefix [5, 6, 7] [4, 5, 6, 7, 8, 9]) False
     chkk (isaprefix ["Hello", "Haskell"] ["Hello", "Haskell", "F2"]) True
+    -- 1b
     chkk (isasublist [1, 2, 3] [0, 1, 2, 3, 4]) True
     chkk (isasublist [1, 2, 3] [1, 2, 10, 2, 3, 11]) False
     chkk (isasublist "Chip" "Fish&Chips") True
+    -- 1c
+    chkk (composeFun [fun1, fun2] 10) 22
+    chkk (composeFun [fun2, fun1] 10) 21
+    chkk (composeFun [] 10) 10

@@ -21,3 +21,16 @@ isasublist [] _ = True
 isasublist (x:xs) (y:ys) | x == y = isaprefix xs ys
                          | otherwise = isasublist (x:xs) ys
 
+-- 1c
+-- composefun: xs is a list of (Int -> Int) applied to x
+-- helper functions:
+fun1 :: Int -> Int
+fun1 x = x + 1
+fun2 :: Int -> Int
+fun2 x = x * 2
+-- composeFun [fun1, fun2] 10 22
+-- composeFun [fun2, fun1] 10 21
+-- composeFun [] 10 10
+composeFun :: [(Int -> Int)] -> Int -> Int
+composeFun [] x = x
+composeFun (f:fs) x = composeFun fs (f x)
