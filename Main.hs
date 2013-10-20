@@ -21,6 +21,8 @@ main
     = do 
 
     print "Starting Tests..."
+    
+    -- Hallo Christoph! ;)
 
     -- 1.1
     chk(double 0 == 0)
