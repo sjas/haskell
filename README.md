@@ -12,9 +12,10 @@ Doing the NPP lab exercises for fun.
 
 Since code is being put into Modules, that are automically loaded, only the main file has to be listed for compiling.
 
+    # compile && run
     ghc --make Main.hs && ./Main
     
-This line being put to a script or a shortcut of your editor and you are good to go. Forget reloads in the REPL.
+This line being put to a script or a shortcut of your editor and you are good to go.
 
 ## comment
 
@@ -31,4 +32,4 @@ Back then each function was put into a single file, along with comments and corr
 Running a file provided fast feedback when running the scripts.
 As opposed to pure REPL usage the test code was retained, too.
 
-Not needing to reload scripts after having made changes to it and not having an extra step is also further development streamlining.
+Not needing to reload scripts after changes and not having an extra step for running code is more development streamlining.
