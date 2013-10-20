@@ -18,16 +18,17 @@ This line being put to a script or a shortcut of your editor and you are good to
 
 ## comment
 
-Using a Mainfile containing imperative testcode with printlines to STDOUT was put to use, since 
-full blown unit testing would have been overhead IMHO. This here is after all just like playing in a sandbox.
-The approach would have been trivial to implement if the course introduction or any other documention on google 
-had shown how to do it, instead of having to guess how IO Monads might have to work.
-Either there exists some misunderstanding of how to work with haskell on my side, or this workflow is just extremely 
-unpopular?
+Using a Mainfile containing imperative testcode with printlines to STDOUT is used.
+A full blown unit test framework would have been overhead here.
+First write the test code in the mainfile, then implement. 
+This is TDD in its simpliest form.
 
-The idea stemmed from my scheme experiences. Back then each defined function was put into a single file, along with 
-comments and corresponding testcode, which provided fast feedback when running the scripts, not loosing code 
-(compared to coding solely in the REPL and closing the interpreter), and not needing to reload scripts after having made 
-changes to it AND running them in separate step.
-
+Hardest part was figuring monads out on my own (and not having understood them until now...)
 Maybe this will help somebody with similar problems, I would not want to have to work without this for now.
+
+The idea stemmed from erlier scheme experiences. 
+Back then each function was put into a single file, along with comments and corresponding testcode.
+Running a file provided fast feedback when running the scripts.
+As opposed to pure REPL usage the test code was retained, too.
+
+Not needing to reload scripts after having made changes to it and not having an extra step is also further development streamlining.
