@@ -1,6 +1,6 @@
 # haskell
 
-Doing the NPP lab exercises for fun.
+Doing the NPP lab exercises.
 
 ## contents
 
