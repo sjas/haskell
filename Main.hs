@@ -145,7 +145,7 @@ main
     chkk (sumFunction intSqr 5) 7
 
     -- 1.5
-    {-chkk (hanoi 0) []-}
+    {-chk (hanoi 0 == "")-}
     {-chkk (hanoi 2) [('a', 'b'), ('a', 'c'), ('b', 'c')]-}
 
     -- 2.1
