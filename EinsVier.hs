@@ -3,35 +3,31 @@
 --
 module EinsVier where
 
--- 1
--- fibo: calculate fibonacci number
--- fibo 0 -> 0
--- fibo 4 -> 5
--- fibo 5 -> 8
-fibo :: Int -> Int
-fibo 0 = 0
-fibo 1 = 1
-fibo n = fibo (n - 1) + fibo (n - 2)
+{-type Moves = (Char, Char)-}
+{-type Solution = [Moves]-}
 
--- 2
--- fiboTwo: return (predecessor, fibonacci number), works only for values 1 and above
--- fiboTwo 5 -> (5, 8)
--- fiboTwo 6 -> (8, 13)
-fiboTwo :: Int -> (Int, Int)
-fiboTwo n = fiboTwoHelp n 1 (0, 1)
-fiboTwoHelp :: Int -> Int -> (Int, Int) -> (Int, Int)
-fiboTwoHelp n i (a, b) | n == i = (a, b)
-                       | otherwise = fiboTwoHelp n (i + 1) (step (a, b))
--- fiboTwo HAS to use the next function, part of the task
-step :: (Int, Int) -> (Int, Int)
-step (x, y) = (y, (x + y))
-superFibo :: Int -> Int
-superFibo n = snd (fiboTwo n)
+-- hanoi: towers of hanoi
+-- hanoi 0 -> []
+-- hanoi 2 -> [('a', 'b'), ('a', 'c'), ('b', 'c')]
 
--- 3
--- sumFunction: take a function f and a value n as arguments, and return the sum of f 0 .. f n
--- sumFunction intSqr 1 -> 1
--- sumFunction intSqr 4 -> 5
--- sumFunction intSqr 15 -> 10
-sumFunction f 0 = f 0
-sumFunction f n = f n + sumFunction f (n - 1)
+
+-- Aguado implmentation
+
+type Setting = (Char, Char, Char)
+-- origin,intermediate,destination are tower names: o,i,d
+
+{-hanoi :: Setting -> Int -> String-}
+hanoi _ 0 = []
+{-hanoi (o,i,d) 1 = (o,d)-}
+hanoi (o,i,d) n = hanoi (o,d,i) (n-1) ++ [(o,d)] ++ hanoi (d,i,o) (n-1)
+
+
+-- other implementation
+{-
+hanoi :: Int -> Solution
+hanoi 0 = []
+hanoi n = compute (n, 'a', 'b', 'c')
+
+compute :: Int -> Char -> Char -> Char -> Solution
+compute n a b c = compute(n - 1) a b c ++ (a, c) ++ compute(n - 1) b c a
+-}

@@ -10,7 +10,7 @@ module ZweiZwei where
 -- theElem [2..22] 1 -> False
 theElem :: Eq a => [a] -> a -> Bool
 theElem [] _ = False
-theElem xs x = if (x /= head xs)
+theElem xs x = if x /= head xs
                 then theElem (tail xs) x
                 else True
 
@@ -19,7 +19,7 @@ theElem xs x = if (x /= head xs)
 -- use if-then-else
 -- theLast [1..3] -> 3
 theLast :: Eq a => [a] -> a
-theLast xs = if (tail xs == [])
+theLast xs = if tail xs == []
                  then head xs
                  else theLast (tail xs)
 
@@ -27,22 +27,22 @@ theLast xs = if (tail xs == [])
 -- theLenght: return length of a list
 -- use if-then-else
 -- thelenght [1..100] -> 100
-theLenght :: Eq a => [a] -> Int
-theLenght xs = if (tail xs == [])
+theLenght :: Eq a => [a] -> Integer
+theLenght xs = if tail xs == []
                then 1
-               else 1 + (theLenght (tail xs))
+               else 1 + theLenght (tail xs)
 -- 4
 -- theNth: return index n of xs
 -- use pattern-matching
 -- theNth 2 [12..15] -> 14
-theNth :: Eq a => Int -> [a] -> a
+theNth :: Eq a => Integer -> [a] -> a
 theNth 0 (x:_) = x
-theNth n (x:xs) = theNth (n - 1) xs
+theNth n (_:xs) = theNth (n - 1) xs
 -- nth: check index is in bounds and non-negative, then call theNth
 -- use guards
-nth :: Ord a => Int -> [a] -> a
+nth :: Ord a => Integer -> [a] -> a
 nth n xs | n < 0 = error "index below 0"
-         | n >= (theLenght xs) = error "index bigger than array"
+         | n >= theLenght xs = error "index bigger than array"
          | otherwise = theNth n xs
 
 -- 5
@@ -51,7 +51,7 @@ nth n xs | n < 0 = error "index below 0"
 remove :: Eq a => a -> [a] -> [a]
 remove _ [] = []
 remove x xs | head xs == x = remove x (tail xs)
-            | otherwise = (head xs) : (remove x (tail xs))
+            | otherwise = head xs : remove x (tail xs)
 
 -- 6
 -- subst: replace all m with n in xs
@@ -59,7 +59,7 @@ remove x xs | head xs == x = remove x (tail xs)
 subst :: Eq a => a -> a -> [a] -> [a]
 subst _ _ [] = []
 subst m n xs | head xs == m = n : subst m n (tail xs)
-             | otherwise = (head xs) : (subst m n (tail xs))
+             | otherwise = head xs : subst m n (tail xs)
 
 -- 7
 -- rev: reverse a list
@@ -67,7 +67,7 @@ subst m n xs | head xs == m = n : subst m n (tail xs)
 -- rev [1..3] -> [3, 2, 1]
 rev :: [a] -> [a]
 rev [] = []
-rev xs = last xs : (rev (init xs))
+rev xs = last xs : rev (init xs)
 
 -- 8
 -- append: concatenate two lists xs,ys returned as a new list
@@ -76,25 +76,30 @@ rev xs = last xs : (rev (init xs))
 -- append [1..3] [4..6] -> [1..6]
 append :: [a] -> [a] -> [a]
 append [] [] = []
-append [] ys = (head ys) : (append [] (tail ys))
-append xs ys = (head xs) : (append (tail xs) ys)
+append [] ys = head ys : append [] (tail ys)
+append xs ys = head xs : append (tail xs) ys
 
 -- 9
 -- normal: make a list to a set
 -- normal [] -> []
 -- normal [1, 1, 2, 2, 3, 3, 3] -> [1, 2, 3]
--- fixme: use general type instead of Int
-normal :: [Int] -> [Int]
+-- fixme: use general type instead of Integer
+normal :: [Integer] -> [Integer]
 normal [] = []
-normal xs = (head xs) : (normal (remove (head xs) (tail xs)))
+normal xs = head xs : normal (remove (head xs) (tail xs))
 
 -- 10
 -- inter: intersect xs ys
-{-inter :: [Int] -> [Int]-}
-{-inter [] _ = []-}
-{-inter _ [] = []-}
-{--- fixme-}
-{-inter xs ys = [k | ]-}
+inter :: [Integer] -> [Integer] -> [Integer]
+inter [] _ = []
+inter _ [] = []
+inter (x:xs) ys | theElem ys x = x : inter xs ys
+                | otherwise = inter xs ys
+-- inter xs ys = [ x | x <- xs, x `elem` ys ]
 
 -- 11
 -- theUnion: create union 
+theUnion :: [Integer] -> [Integer] -> [Integer]
+theUnion [] xs = xs
+theUnion xs [] = xs
+theUnion xs ys = normal (xs ++ ys)

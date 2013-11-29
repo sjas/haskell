@@ -11,22 +11,13 @@ module ZweiEins where
 -- listEvens (-29) (-22) -> [-22, -24, -26, - 28]]
 listEvens :: Int -> Int -> [Int]
 listEvens a b | a > b = []
-              | otherwise = listEvensHelp (reverseList [a..b])
-listEvensHelp xs = filter (\x -> isEven x) xs
+              | otherwise = filter isEven (reverse [a..b])
 -- isEven: check if given Int is even
 -- isEven 1 -> False
 -- isEven 0 -> True
 -- isEven 2 -> False
 isEven :: Int -> Bool
-isEven n | rem n 2 == 0 = True
-         | otherwise = False
---reverseList: for given xs return reversed list
---reverseList [1,2,3] -> [3,2,1]
-reverseList :: [Int] -> [Int]
-reverseList xs = reverseListHelp xs []
-reverseListHelp :: [Int] -> [Int] -> [Int]
-reverseListHelp [] xs = xs
-reverseListHelp xs ys = reverseListHelp (tail xs) ((head xs):ys)
+isEven n = rem n 2 == 0
 
 -- 2
 -- listTables: take Int n>0 and return triplets with a,b,c>=n and c=a*b
@@ -44,7 +35,7 @@ listTables n | n<0 = []
 addPairwise :: [Int] -> [Int] -> [Int]
 addPairwise [] _ = []
 addPairwise _ [] = []
-addPairwise xs ys = [x + y | (x, y) <- zip xs ys]
+addPairwise xs ys = [ x + y | (x, y) <- zip xs ys ]
 
 -- 4
 -- subList: take list xs and indices (i,j) return list [xs_i .. xs_j] for 0<=i<=j<=length(xs-1)
@@ -54,13 +45,13 @@ subList :: [a] -> (Int, Int) -> [a]
 subList xs (i, j) | j < i = error "i > j, cannot be..."
                   | i >= length xs || i <= 0 = error "ArrayIndex i out of bounds."
                   | j >= length xs || i <= 0 = error "Arrayjndex j out of bounds."
-                  | i == j = xs !! i:[]
-                  | otherwise = [ xs!!k | k<-[i..j] ]
+                  | i == j = [ xs !! i ]
+                  | otherwise = [ xs !! k | k <- [ i .. j ] ]
 subList' :: [a] -> (Int, Int) -> [a]
 subList' xs (i, j) | j < i = error "i > j, cannot be..."
                    | i >= length xs || i <= 0 = error "ArrayIndex i out of bounds."
                    | j >= length xs || i <= 0 = error "Arrayjndex j out of bounds."
-                   | i == j = xs !! i:[]
+                   | i == j = [ xs !! i ]
                    | otherwise = drop i (take (j+1) xs)
 
 -- 5

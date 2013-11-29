@@ -6,9 +6,8 @@ module Test where
 
 -- first test function
 chk :: Bool -> IO ()
-chk a = if a == True 
-        then returnMode okString
-        else returnMode failString
+chk a | a = returnMode okString
+      | otherwise = returnMode failString
 
 -- another, more general test function
 chkk :: Eq a => a -> a -> IO ()
@@ -28,5 +27,5 @@ failString = "### FAIL ### "
 -- to easier change output design, choose one version
 returnMode :: String -> IO ()
 {-returnMode n = print n-}
-returnMode n = putStr n
-{-returnMode n = putStrLn n-}
+-- returnMode = putStr
+returnMode = putStrLn
