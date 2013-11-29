@@ -14,8 +14,10 @@ import EinsVier()
 import ZweiEins
 import ZweiZwei
 import ZweiDrei
+    
+import DreiEins
 
-import PracticePaper
+-- import PracticePaper
 
 main :: IO ()
 main 
@@ -174,19 +176,51 @@ main
     chkk (sumSquares 3) 14
     chkk (myUnzip (zip [1..10] [11..20])) ([1..10], [11..20])
     -- print (myUnzip (zip [1..10] [11..20]))
+         
+    -- 3.1
+    chkk theSeasons [Spring,Summer,Autumn,Winter]
+    chkk (seasonsFrom Autumn) [Autumn, Winter] 
+    chkk (seasonsFrom Summer) [Summer, Autumn, Winter]
+    chkk (listSeasonsFrom [Summer]) [[Summer, Autumn, Winter]]
+    chkk (listSeasonsFrom [Winter, Summer]) [[Winter], [Summer, Autumn, Winter]]
+    chkk (listSeasonsFrom [Autumn, Winter, Summer]) [[Autumn, Winter], [Winter], [Summer, Autumn, Winter]]
+    chkk (month2season Jan) Winter
+    chkk (month2season Jul) Summer
+    chkk (season2months Winter) [Jan, Feb, Dec]
+    chkk (season2months Summer) [Jun, Jul, Aug]
+    -- mapM_ print (map season2months theSeasons)     
+    chkk (monthANDseason []) []
+    chkk (monthANDseason [Mar, Feb]) [(Mar, Spring), (Feb, Winter)]
+    chkk (monthANDseason [Jan, Apr, Jul, Oct]) [(Jan, Winter), (Apr, Spring), (Jul, Summer), (Oct, Autumn)]
+    chkk (bool2MyBoolean True) T
+    chkk (bool2MyBoolean False) F
+    chkk (oder F F) F
+    chkk (oder F T) T
+    chkk (und T T) T
+    chkk (und F T) F
+    chkk (allUnd []) T
+    chkk (allUnd [T, T]) T
+    chkk (allUnd [T, F]) F
+    chkk (allOder []) F
+    chkk (allOder [F, F]) F
+    chkk (allOder [T, F]) T
+    chkk (convert []) 0
+    chkk (convert [I,O,I]) 5
+    chkk (convert [O,I,I,I]) 7
+
     
 
-    -- Practice Paper
-    -- 1a
-    chkk (isaprefix [] [1..10]) True
-    chkk (isaprefix [5, 6, 7] [5, 6, 7, 8, 9]) True
-    chkk (isaprefix [5, 6, 7] [4, 5, 6, 7, 8, 9]) False
-    chkk (isaprefix ["Hello", "Haskell"] ["Hello", "Haskell", "F2"]) True
-    -- 1b
-    chkk (isasublist [1, 2, 3] [0, 1, 2, 3, 4]) True
-    chkk (isasublist [1, 2, 3] [1, 2, 10, 2, 3, 11]) False
-    chkk (isasublist "Chip" "Fish&Chips") True
-    -- 1c
-    chkk (composeFun [fun1, fun2] 10) 22
-    chkk (composeFun [fun2, fun1] 10) 21
-    chkk (composeFun [] 10) 10
+    -- -- Practice Paper
+    -- -- 1a
+    -- chkk (isaprefix [] [1..10]) True
+    -- chkk (isaprefix [5, 6, 7] [5, 6, 7, 8, 9]) True
+    -- chkk (isaprefix [5, 6, 7] [4, 5, 6, 7, 8, 9]) False
+    -- chkk (isaprefix ["Hello", "Haskell"] ["Hello", "Haskell", "F2"]) True
+    -- -- 1b
+    -- chkk (isasublist [1, 2, 3] [0, 1, 2, 3, 4]) True
+    -- chkk (isasublist [1, 2, 3] [1, 2, 10, 2, 3, 11]) False
+    -- chkk (isasublist "Chip" "Fish&Chips") True
+    -- -- 1c
+    -- chkk (composeFun [fun1, fun2] 10) 22
+    -- chkk (composeFun [fun2, fun1] 10) 21
+    -- chkk (composeFun [] 10) 10

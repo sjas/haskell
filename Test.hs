@@ -27,5 +27,5 @@ failString = "### FAIL ### "
 -- to easier change output design, choose one version
 returnMode :: String -> IO ()
 {-returnMode n = print n-}
--- returnMode = putStr
-returnMode = putStrLn
+returnMode = putStr
+-- returnMode = putStrLn
