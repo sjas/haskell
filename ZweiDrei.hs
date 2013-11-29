@@ -65,9 +65,22 @@ sumSquares :: Integer -> Integer
 sumSquares 0 = 0
 sumSquares 1 = 1
 sumSquares n = foldr (+) 0 (map (\ x -> x * x) [1..n])
-               
+-- sumSquares n = foldl (+) 0 (map (\ x -> x * x) [1..n])
+-- sumSquares n = sum (map (\ x -> x * x) [1..n])
+
 -- 15
 myUnzip :: [(a, b)] -> ([a], [b])
-myUnzip xs = ( (foldr (\ x -> (fst x :)) [] xs), (foldr (\ x -> (snd x :)) [] xs) )
--- myUnzip xs = foldr (\ x -> ((fst x :),(snd x :))) ([],[]) xs
+--
+-- foldr regular def     :: (  a  ->    b    ->    b    ) ->      b     ->    [a]   ->     b
+--                            lambda function type              start         xs         result
+-- foldr definition here :: ((a,b)->([a],[b])->([a],[b])) ->  ([a],[b]) ->  [(a,b)] -> ([a],[b])
+--
+-- -- WORKING IMPLEMENTATION:
+myUnzip = foldr (\ (x,y) (xStart, yStart) -> (x:xStart, y:yStart)) ([], [])
+-- -- MATHEMATICALLY 'MORE' CORRECT
+-- myUnzip xs = foldr (\ (x,y) -> \ (xStart, yStart) -> (x:xStart, y:yStart)) ([], []) xs
+--
+-- BAD IMPLEMENTATION:
+-- myUnzip xs = ( (foldr (\ x -> (fst x :)) [] xs), (foldr (\ x -> (snd x :)) [] xs) )
+-- WITH MAP INSTEAD OF FOLDR:
 -- myUnzip xs = ( map fst xs, map snd xs )

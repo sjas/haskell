@@ -9,7 +9,7 @@ import Deprecated
 import EinsEins
 import EinsZwei
 import EinsDrei
-import EinsVier
+import EinsVier()
 
 import ZweiEins
 import ZweiZwei
@@ -23,7 +23,6 @@ main
 
     print "Starting Tests..."
 
-    
     -- 1.1
     chk (double 0 == 0)
     chk (double 2 == 4)
@@ -174,8 +173,9 @@ main
     chkk (myFilterRec isEven [1..5]) [2, 4]
     chkk (sumSquares 3) 14
     chkk (myUnzip (zip [1..10] [11..20])) ([1..10], [11..20])
-    print (myUnzip (zip [1..10] [11..20]))
+    -- print (myUnzip (zip [1..10] [11..20]))
     
+
     -- Practice Paper
     -- 1a
     chkk (isaprefix [] [1..10]) True
