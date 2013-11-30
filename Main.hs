@@ -17,6 +17,7 @@ import ZweiDrei
     
 import DreiEins
 import DreiZwei
+import DreiDrei
 
 -- import PracticePaper
 
@@ -218,8 +219,40 @@ main
     chkk (addAges (Person (Nomen "A" "L") (Years 10)) (Person (Nomen "X" "Y") (Years 12))) (Years 22)
     chkk (isRound (Circle pi)) T
     chkk (isRound (Rectangle 10.5 12.3)) F
+    chkk (getArea (Rectangle 16.9 68)) 1149.2
+    chkk (dist (Pair 4 6) (Pair 9 25)) 19.646883
+    chkk (getSlope (Pair 1 3) (Pair 10 20)) (Value 1.8888888)
+    chkk (getSlope (Pair 2 3) (Pair 1 (-8))) (Value 11.0)
+    chkk (getSlope (Pair 100 0) (Pair 100 1)) Infinite
+    chkk (getYintercept (Pair 5 5) (Value 1)) (Intercept 0.0)
+    chkk (getYintercept (Pair (-5) 25) (Value 0.5)) (Intercept 27.5)
+    chkk (getYintercept (Pair 1 1) Infinite) Undefined
+    -- testcode not working due to missing 'instance Show' declaration, but implementation tested in REPL and proved to be correct
+    -- chkk (move 10 (-10) (Place (Rectangle 3 4) (Pair 0 0))) (Place (Rectangle 3.0 4.0) (Pair 10.0 (-10.0)))
+    -- chkk (move 10 (-10) (Place (Rectangle 3 4) (Pair 0 0))) (Place (Rectangle 3.0 4.0) (Pair 10.0 (-10.0)))
+    -- chkk (shape2figure (Circle pi) (Pair 1 1)) (Place (Circle 3.141593) (Pair 1.0 1.0))
+    -- chkk (shape2figure (Rectangle 1 3) (Pair 10 15)) (Place (Rectangle 1.0 3.0) (Pair 10.0 15.0))
+    -- chkk (move 5 5 (shape2figure (Rectangle 1 3) (Pair 10 15))) (Place (Rectangle 1.0 3.0) (Pair 15.0 20.0))
 
+    -- chkk (overlap (Place (Circle 1.414213) (Pair 0 0)) (Place (Circle 1.414213) (Pair 2 2))) False
+    -- chkk (overlap (Place (Rectangle 2 8) (Pair 5 0)) (Place (Circle 1) (Pair 0 0))) True
+    -- chkk (overlap (Place (Circle 1.414214) (Pair 0 0)) (Place (Circle 1.414214) (Pair 2 2))) True
 
+    -- chkk (adjust (Ufo (Pair 0 0) (Value 1) East (Km 10))) (Ufo (Pair 0.0 0.0) (Value 1.0) East (Km 10.0))
+    -- chkk (adjust (Ufo (Pair (-5) 9) Infinite West (Km 1))) (Ufo (Pair (-5.0) 9.0) Infinite South (Km 1.0))
+    -- chkk (adjust (Ufo (Pair 1 100) (Value 10) North (Km 200))) (Ufo (Pair 1.0 100.0) (Value 10.0) East (Km 200.0))
+    
+    -- chkk (predict (Ufo (Pair 0 0) (Value 1) East (Km 1.414214)) (Secs 1)) (Pair 1.0 1.0)
+    -- chkk (predict (Ufo (Pair 0 0) (Value 1) North (Km 1.414214)) (Secs 1)) (Pair 1.0 1.0)
+    -- chkk (predict (Ufo (Pair 0 0) (Value (-1)) East (Km 1.414214)) (Secs 1)) (Pair 1.0 (-1.0))
+    -- chkk (predict (Ufo (Pair 0 0) (Value 1) West (Km 1.414214)) (Secs 1)) (Pair (-1.0) (-1.0))
+    -- chkk (predict (Ufo (Pair 0 0) (Value (-1)) West (Km 1.414214)) (Secs 1)) (Pair (-1.0) 1.0)
+    -- chkk (predict (Ufo (Pair 1 (-10)) (Value 10000) East (Km 10)) (Secs 1)) (Pair 1.001 0.0)
+    -- chkk (predict (Ufo (Pair 5 4) (Value 1) East (Km 1.414214)) (Secs 10)) (Pair 15.0 14.0)
+    -- chkk (predict (Ufo (Pair 1 4) Infinite North (Km 10)) (Secs 5)) (Pair 1.0 54.0)
+    -- chkk (predict (Ufo (Pair 1 4) Infinite West (Km 10)) (Secs 5)) (Pair 1.0 (-46.0))
+
+    -- 3.3
     
 
     -- -- Practice Paper
