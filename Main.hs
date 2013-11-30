@@ -16,6 +16,7 @@ import ZweiZwei
 import ZweiDrei
     
 import DreiEins
+import DreiZwei
 
 -- import PracticePaper
 
@@ -207,6 +208,17 @@ main
     chkk (convert []) 0
     chkk (convert [I,O,I]) 5
     chkk (convert [O,I,I,I]) 7
+
+    -- 3.2
+    chkk (rounded (Exact 10)) 10
+    chkk (rounded (Approx 10.9)) 11
+    chkk (rounded (Approx (-23))) (-23)
+    chkk (firstName (Person (Nomen "Ada" "Lovelace") (Years 36))) "Ada"
+    chkk (howOld (Person (Nomen "Haskell" "Curry") (Years 81))) (Years 81)
+    chkk (addAges (Person (Nomen "A" "L") (Years 10)) (Person (Nomen "X" "Y") (Years 12))) (Years 22)
+    chkk (isRound (Circle pi)) T
+    chkk (isRound (Rectangle 10.5 12.3)) F
+
 
     
 
