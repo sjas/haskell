@@ -18,6 +18,11 @@ import ZweiDrei
 import DreiEins
 import DreiZwei
 import DreiDrei
+-- import DreiVier
+-- import DreiFuenf
+-- import DreiSechs
+-- import DreiSieben
+
 
 -- import PracticePaper
 
