@@ -20,7 +20,7 @@ import DreiZwei
 import DreiDrei
 import DreiVier
 import DreiFuenf
--- import DreiSechs
+import DreiSechs
 -- import DreiSieben
 
 
@@ -118,6 +118,7 @@ main
     chkk (oneZero factRec 10) False
 
     -- 1.4 TOWERS OF HANOI
+    -- TODO
     -- chk (hanoi 0 == "")
     -- chkk (hanoi 2) [('a', 'b'), ('a', 'c'), ('b', 'c')]
 
@@ -278,9 +279,28 @@ main
     chkk (emptyList (Cons 2 (Cons 1 NilList))) False
     chkk (lengthList (Cons 5 (Cons 4 (Cons 3 (Cons 2 (Cons 1 NilList)))))) 5
 
+    -- 3.6
+    chkk (howMany Empty) 0
+    chkk (howMany (Node 'a' (Node 'b' (Leaf 'c') Empty) (Leaf 'd'))) 4
+    chkk (depth (Leaf 100)) 1
+    chkk (depth (Node 'a' (Node 'b' (Leaf 'c') Empty) (Leaf 'd'))) 3
+    chkk (reflect (Node 'a' (Node 'b' (Leaf 'c') Empty) (Leaf 'd'))) (Node 'a' (Leaf 'd') (Node 'b' Empty (Leaf 'c')))
+    chkk (post (Node 1 (Node 2 (Leaf 3) (Leaf 4)) (Leaf 5))) [3,4,2,5,1]
+    chkk (post (reflect (Node 1 (Node 2 (Leaf 3) (Leaf 4)) (Leaf 5)))) [5,4,3,2,1]
+    chkk (pre (Node 1 (Node 2 (Leaf 3) (Leaf 4)) (Leaf 5))) [1,2,3,4,5]
+    chkk (pre (reflect (Node 1 (Node 2 (Leaf 3) (Leaf 4)) (Leaf 5)))) [1,5,2,4,3]
+    chkk (normalise (Node 'a' Empty Empty)) (Leaf 'a')
+    chkk (normalise (Node 'a' (Node 'b' Empty (Leaf 'c')) (Node 'd' Empty Empty))) (Node 'a' (Node 'b' Empty (Leaf 'c')) (Leaf 'd'))
+    chkk (normalise (Node 1 (Node 2 (Node 3 Empty Empty) (Leaf 4)) (Leaf 5))) (Node 1 (Node 2 (Leaf 3) (Leaf 4)) (Leaf 5))
+    chkk (normalise (Node 1 (Node 2 (Leaf 3) (Leaf 4)) (Leaf 5))) (Node 1 (Node 2 (Leaf 3) (Leaf 4)) (Leaf 5))
+    chkk (mapTree natural (Node 1 (Node (-2) (Leaf 3) (Leaf 4)) (Leaf (-5)))) (Node True (Node False (Leaf True) (Leaf True)) (Leaf False))
+    chkk (mapTree plusOne (Node 1 (Node (-2) (Leaf 3) (Leaf 4)) (Leaf (-5)))) (Node 2 (Node (-1) (Leaf 4) (Leaf 5)) (Leaf (-4)))
+    -- chkk (lists2tree [1,2,3,4,5] [3,2,4,1,5]) (Node 1 (Node 2 (Leaf 3) (Leaf 4)) (Leaf 5))
+
          
-
-
+    -- 3.7
+    -- TODO
+          
 
     -- -- practice paper
     -- -- 1a
