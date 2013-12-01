@@ -18,8 +18,8 @@ import ZweiDrei
 import DreiEins
 import DreiZwei
 import DreiDrei
--- import DreiVier
--- import DreiFuenf
+import DreiVier
+import DreiFuenf
 -- import DreiSechs
 -- import DreiSieben
 
@@ -258,9 +258,31 @@ main
     -- chkk (predict (Ufo (Pair 1 4) Infinite West (Km 10)) (Secs 5)) (Pair 1.0 (-46.0))
 
     -- 3.3
-    
+    chkk (size1 (Lit1 10)) 0
+    chkk (size1 (Sub1 (Add1 (Lit1 10) (Lit1 5)) (Lit1 1))) 2
+    chkk (size2 (Lit2 10)) 0
+    chkk (size2 (Op Sub2 (Op Add2 (Lit2 10) (Lit2 5)) (Lit2 1))) 2
+         
+    -- 3.4
+    chkk (bEval (EQUAL (ILit 1) (SUB (ILit 2) (ILit 1)))) True
+    chkk (iEval (IF (EQUAL (ILit 10) (ILit 10)) (ADD (ILit 1) (ILit 2)) (ILit 0))) 3
+    chkk (bEval (NOT (EQUAL (ILit 10) (SUB (ILit 11) (ILit 1))))) False
+    chkk (iEval (IF (NOT (EQUAL (ILit 3) (SUB (ILit 4) (ILit 1)))) (ILit 1) (ILit 10))) 10
 
-    -- -- Practice Paper
+    -- 3.5
+    -- chkk (swapPair (Duple 'a' 'b')) (Duple 'b' 'a')
+    -- chkk (swapPair (Duple (iEval (ILit 1)) (iEval (ILit 2)))) (Duple 2 1)
+    chkk (eqPair (Duple "Haskell" "Type")) False
+    chkk (eqPair (Duple False False)) True
+    chkk (emptyList NilList) True
+    chkk (emptyList (Cons 2 (Cons 1 NilList))) False
+    chkk (lengthList (Cons 5 (Cons 4 (Cons 3 (Cons 2 (Cons 1 NilList)))))) 5
+
+         
+
+
+
+    -- -- practice paper
     -- -- 1a
     -- chkk (isaprefix [] [1..10]) True
     -- chkk (isaprefix [5, 6, 7] [5, 6, 7, 8, 9]) True
