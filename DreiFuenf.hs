@@ -5,7 +5,10 @@ module DreiFuenf where
 
 -- 1
 data Pairs a = Duple a a
-swapPair :: Pairs a -> Pairs a
+-- instance Eq a => Eq (Pairs a) where
+-- (==) (Duple a b) (Duple c d) = a == c && b == d
+-- TODO fix swapPair
+swapPair :: Eq a => Show a => Pairs a -> Pairs a
 swapPair (Duple a b) = Duple b a
 eqPair :: Eq a => Show a => Pairs a -> Bool
 eqPair (Duple a b) | a == b = True

@@ -1,5 +1,5 @@
 --
--- This file contains tests for the haskell files in the same folder.
+-- this file contains tests for the haskell files in the same folder.
 --
 module Main (main) where
 
@@ -21,7 +21,7 @@ import DreiDrei
 import DreiVier
 import DreiFuenf
 import DreiSechs
--- import DreiSieben
+import DreiSieben
 
 
 -- import PracticePaper
@@ -299,7 +299,20 @@ main
 
          
     -- 3.7
-    -- TODO
+    chkk (leavesInGenTrees (GenLeaf 2)) 1
+    chkk (leavesInGenTrees (GenNode [GenLeaf 33,GenLeaf 33, GenLeaf 33, GenLeaf 33])) 4
+    chkk (leavesInGenTrees (GenNode [(GenNode [(GenNode [GenLeaf 3, GenLeaf 4, GenLeaf 5]), GenLeaf 3, GenLeaf 4, GenLeaf 5]), (GenNode [GenLeaf 3, GenLeaf 4, GenLeaf 5]), (GenNode [GenLeaf 3, GenLeaf 4, GenLeaf 5]), (GenNode [GenLeaf 3, GenLeaf 4, GenLeaf 5]), (GenNode [GenLeaf 3, GenLeaf 4, GenLeaf 5])])) 18
+    
+
+           --   (GenNode [
+           --    (GenNode 
+           --     [(GenLeaf 3), (GenLeaf 4)]) 
+           --    (GenLeaf 5))],
+           --   (GenNode [
+           --     (GenNode 
+           --      [(GenLeaf 3), (GenLeaf 4)]) 
+           --     (GenLeaf 5)]))))
+           -- ]
           
 
     -- -- practice paper

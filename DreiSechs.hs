@@ -61,5 +61,5 @@ mapTree f (Node x a b) = Node (f x) (mapTree f a) (mapTree f b)
 -- list2tree :: Eq a => [a] -> [a] -> Tree a
 -- list2tree 
 
--- post (Node x a b) = post a ++ post b ++ [x]
--- pre (Node x a b) = [x] ++ pre a ++ pre b
+-- -- post (Node x a b) = post a ++ post b ++ [x]
+-- -- pre (Node x a b) = [x] ++ pre a ++ pre b
