@@ -233,6 +233,7 @@ main
     chkk (getYintercept (Pair 5 5) (Value 1)) (Intercept 0.0)
     chkk (getYintercept (Pair (-5) 25) (Value 0.5)) (Intercept 27.5)
     chkk (getYintercept (Pair 1 1) Infinite) Undefined
+
     -- testcode not working due to missing 'instance Show' declaration, but implementation tested in REPL and proved to be correct
     -- chkk (move 10 (-10) (Place (Rectangle 3 4) (Pair 0 0))) (Place (Rectangle 3.0 4.0) (Pair 10.0 (-10.0)))
     -- chkk (move 10 (-10) (Place (Rectangle 3 4) (Pair 0 0))) (Place (Rectangle 3.0 4.0) (Pair 10.0 (-10.0)))
@@ -240,9 +241,11 @@ main
     -- chkk (shape2figure (Rectangle 1 3) (Pair 10 15)) (Place (Rectangle 1.0 3.0) (Pair 10.0 15.0))
     -- chkk (move 5 5 (shape2figure (Rectangle 1 3) (Pair 10 15))) (Place (Rectangle 1.0 3.0) (Pair 15.0 20.0))
 
+
     -- chkk (overlap (Place (Circle 1.414213) (Pair 0 0)) (Place (Circle 1.414213) (Pair 2 2))) False
     -- chkk (overlap (Place (Rectangle 2 8) (Pair 5 0)) (Place (Circle 1) (Pair 0 0))) True
     -- chkk (overlap (Place (Circle 1.414214) (Pair 0 0)) (Place (Circle 1.414214) (Pair 2 2))) True
+
 
     -- chkk (adjust (Ufo (Pair 0 0) (Value 1) East (Km 10))) (Ufo (Pair 0.0 0.0) (Value 1.0) East (Km 10.0))
     -- chkk (adjust (Ufo (Pair (-5) 9) Infinite West (Km 1))) (Ufo (Pair (-5.0) 9.0) Infinite South (Km 1.0))

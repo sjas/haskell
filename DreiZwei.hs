@@ -16,15 +16,15 @@ data Age = Years Integer deriving (Eq, Show)
 data Name = Nomen String String deriving (Show)
 data People = Person Name Age deriving (Show)
 firstName :: People -> String
-firstName (Person (Nomen first family) _) = first
+firstName (Person (Nomen first _) _) = first
 howOld :: People -> Age
-howOld (Person _ (Years alter)) = (Years alter)
+howOld (Person _ (Years alter)) = Years alter
 getAge :: Age -> Integer
 getAge (Years years) = years
 addAges :: People -> People -> Age
-addAges x y = (Years ((s x) + (s y)))
+addAges x y = Years (s x + s y)
               where 
-                s = (\a -> getAge $ howOld a)
+                s = getAge . howOld
 
 -- 3
 data Shape = Circle Float | Rectangle Float Float deriving (Show)
@@ -47,22 +47,22 @@ dist (Pair x1 y1) (Pair x2 y2) = sqrt ( (y2-y1)**2 + (x2-x1)**2 )
 data Slope = Value Float | Infinite deriving (Eq, Show)
 getSlope :: Point -> Point -> Slope
 getSlope (Pair x1 y1) (Pair x2 y2) | x1 == x2 = Infinite
-                                   | otherwise = ( Value ( (y2 - y1) / (x2-x1) ) )
+                                   | otherwise = Value ( (y2 - y1) / (x2-x1) )
 
 -- 8
-data Y_intercept = Intercept Float | Undefined deriving (Eq, Show)
-getYintercept :: Point -> Slope -> Y_intercept
+data YIntercept = Intercept Float | Undefined deriving (Eq, Show)
+getYintercept :: Point -> Slope -> YIntercept
 getYintercept _ Infinite = Undefined
-getYintercept (Pair x y) (Value m) = (Intercept (y - m * x))
+getYintercept (Pair x y) (Value m) = Intercept (y - m * x)
 
 -- 9
 data Figure = Place Shape Point deriving (Show)
 move :: Float -> Float -> Figure -> Figure 
-move a b (Place s (Pair x y)) = (Place s (Pair (a+x) (b+y)))
+move a b (Place s (Pair x y)) = Place s (Pair (a+x) (b+y))
 
 -- 10
 shape2figure :: Shape -> Point -> Figure
-shape2figure s p = (Place s p)
+shape2figure = Place
 
 -- -- 11
 -- overlap :: Figure -> Figure -> Bool
