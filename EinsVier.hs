@@ -3,31 +3,22 @@
 --
 module EinsVier where
 
-{-type Moves = (Char, Char)-}
-{-type Solution = [Moves]-}
+type Moves = (Char, Char)
+type Solution = [Moves]
 
 -- hanoi: towers of hanoi
 -- hanoi 0 -> []
 -- hanoi 2 -> [('a', 'b'), ('a', 'c'), ('b', 'c')]
-
+hanoi :: Integer -> Solution
+hanoi n = computeHanoi n 'a' 'b' 'c'
+computeHanoi :: Integer -> Char -> Char -> Char -> Solution
+computeHanoi 0 _ _ _ = []
+computeHanoi n a b c = computeHanoi (n-1) a c b ++ [(a, c)] ++ computeHanoi (n-1) b a c
 
 -- Aguado implmentation
-
+-- origin,intermediate,dest are tower names: o,i,d
 type Setting = (Char, Char, Char)
--- origin,intermediate,destination are tower names: o,i,d
-
-{-hanoi :: Setting -> Int -> String-}
-hanoi _ 0 = []
-{-hanoi (o,i,d) 1 = (o,d)-}
-hanoi (o,i,d) n = hanoi (o,d,i) (n-1) ++ [(o,d)] ++ hanoi (d,i,o) (n-1)
-
-
--- other implementation
-{-
-hanoi :: Int -> Solution
-hanoi 0 = []
-hanoi n = compute (n, 'a', 'b', 'c')
-
-compute :: Int -> Char -> Char -> Char -> Solution
-compute n a b c = compute(n - 1) a b c ++ (a, c) ++ compute(n - 1) b c a
--}
+ahanoi :: Setting -> Integer -> String
+ahanoi _ 0 = []
+ahanoi (o,_,d) 1 = o : [d]
+ahanoi (o,i,d) n = ahanoi (o,d,i) (n-1) ++ [o] ++ [d] ++ ahanoi (i,o,d) (n-1)

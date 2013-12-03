@@ -8,6 +8,6 @@ data GenTree a = GenLeaf a
                deriving (Eq,Show)
 
 leavesInGenTrees :: GenTree a -> Integer
+leavesInGenTrees (GenLeaf _) = 1
 leavesInGenTrees (GenNode []) = 0
 leavesInGenTrees (GenNode (x:xs)) = leavesInGenTrees x + leavesInGenTrees (GenNode xs)
-leavesInGenTrees (GenLeaf _) = 1

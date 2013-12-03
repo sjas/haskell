@@ -58,8 +58,15 @@ mapTree f (Leaf a) = Leaf (f a)
 mapTree f (Node x a b) = Node (f x) (mapTree f a) (mapTree f b)
 
 -- 7
--- list2tree :: Eq a => [a] -> [a] -> Tree a
--- list2tree 
+-- TODO
+-- fix this faulty implementation
+lists2tree :: Eq a => [a] -> [a] -> Tree a
+lists2tree [] _ = Empty
+lists2tree _ [] = Empty
+                 -- xs traversal
+                 -- ys pre
+lists2tree xs ys = Node (head xs) (lists2tree (tail xs) ys) (lists2tree (tail (tail xs)) ys)
 
--- -- post (Node x a b) = post a ++ post b ++ [x]
--- -- pre (Node x a b) = [x] ++ pre a ++ pre b
+-- chkk (lists2tree [1,2,3,4,5] [3,2,4,1,5]) Node 1 (Node 2 (Leaf 3) (Leaf 4)) (Leaf 5)
+-- traversal(Node x l r) = traversal l ++ [x] ++ traversal r
+-- pre (Node x a b) = [x] ++ pre a ++ pre b

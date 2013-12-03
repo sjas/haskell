@@ -9,7 +9,7 @@ import Deprecated
 import EinsEins
 import EinsZwei
 import EinsDrei
-import EinsVier()
+import EinsVier
 
 import ZweiEins
 import ZweiZwei
@@ -118,9 +118,9 @@ main
     chkk (oneZero factRec 10) False
 
     -- 1.4 TOWERS OF HANOI
-    -- TODO
-    -- chk (hanoi 0 == "")
-    -- chkk (hanoi 2) [('a', 'b'), ('a', 'c'), ('b', 'c')]
+    chk (hanoi 0 == [])
+    chkk (hanoi 2) [('a', 'b'), ('a', 'c'), ('b', 'c')]
+    chkk (ahanoi ('a','b','c') 2) "abacbc"
 
     -- 2.1
     chkk (isEven 1) False
@@ -271,8 +271,8 @@ main
     chkk (iEval (IF (NOT (EQUAL (ILit 3) (SUB (ILit 4) (ILit 1)))) (ILit 1) (ILit 10))) 10
 
     -- 3.5
-    -- chkk (swapPair (Duple 'a' 'b')) (Duple 'b' 'a')
-    -- chkk (swapPair (Duple (iEval (ILit 1)) (iEval (ILit 2)))) (Duple 2 1)
+    chkk (swapPair (Duple 'a' 'b')) (Duple 'b' 'a')
+    chkk (swapPair (Duple (iEval (ILit 1)) (iEval (ILit 2)))) (Duple 2 1)
     chkk (eqPair (Duple "Haskell" "Type")) False
     chkk (eqPair (Duple False False)) True
     chkk (emptyList NilList) True
@@ -295,7 +295,12 @@ main
     chkk (normalise (Node 1 (Node 2 (Leaf 3) (Leaf 4)) (Leaf 5))) (Node 1 (Node 2 (Leaf 3) (Leaf 4)) (Leaf 5))
     chkk (mapTree natural (Node 1 (Node (-2) (Leaf 3) (Leaf 4)) (Leaf (-5)))) (Node True (Node False (Leaf True) (Leaf True)) (Leaf False))
     chkk (mapTree plusOne (Node 1 (Node (-2) (Leaf 3) (Leaf 4)) (Leaf (-5)))) (Node 2 (Node (-1) (Leaf 4) (Leaf 5)) (Leaf (-4)))
-    -- chkk (lists2tree [1,2,3,4,5] [3,2,4,1,5]) (Node 1 (Node 2 (Leaf 3) (Leaf 4)) (Leaf 5))
+    -- list2tree stuff
+    chkk (pre (Node 1 (Node 2 (Leaf 3) (Leaf 4)) (Leaf 5))) [1,2,3,4,5]
+    chkk (traversal (Node 1 (Node 2 (Leaf 3) (Leaf 4)) (Leaf 5))) [3,2,4,1,5]
+    chkk (lists2tree [1,2,3,4,5] [3,2,4,1,5]) (Node 1 (Node 2 (Leaf 3) (Leaf 4)) (Leaf 5))
+    -- print (lists2tree [1,2,3,4,5] [3,2,4,1,5]) 
+    -- print (Node 1 (Node 2 (Leaf 3) (Leaf 4)) (Leaf 5))
 
          
     -- 3.7
@@ -303,16 +308,6 @@ main
     chkk (leavesInGenTrees (GenNode [GenLeaf 33,GenLeaf 33, GenLeaf 33, GenLeaf 33])) 4
     chkk (leavesInGenTrees (GenNode [(GenNode [(GenNode [GenLeaf 3, GenLeaf 4, GenLeaf 5]), GenLeaf 3, GenLeaf 4, GenLeaf 5]), (GenNode [GenLeaf 3, GenLeaf 4, GenLeaf 5]), (GenNode [GenLeaf 3, GenLeaf 4, GenLeaf 5]), (GenNode [GenLeaf 3, GenLeaf 4, GenLeaf 5]), (GenNode [GenLeaf 3, GenLeaf 4, GenLeaf 5])])) 18
     
-
-           --   (GenNode [
-           --    (GenNode 
-           --     [(GenLeaf 3), (GenLeaf 4)]) 
-           --    (GenLeaf 5))],
-           --   (GenNode [
-           --     (GenNode 
-           --      [(GenLeaf 3), (GenLeaf 4)]) 
-           --     (GenLeaf 5)]))))
-           -- ]
           
 
     -- -- practice paper
