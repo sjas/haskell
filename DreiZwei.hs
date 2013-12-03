@@ -27,7 +27,7 @@ addAges x y = Years (s x + s y)
                 s = getAge . howOld
 
 -- 3
-data Shape = Circle Float | Rectangle Float Float deriving (Show)
+data Shape = Circle Float | Rectangle Float Float deriving (Eq,Show)
                
 -- 4
 isRound :: Shape -> MyBoolean
@@ -39,7 +39,7 @@ getArea :: Shape -> Float
 getArea (Rectangle a b) = a * b
 
 -- 6
-data Point = Pair Float Float deriving (Show)
+data Point = Pair Float Float deriving (Eq,Show)
 dist :: Point -> Point -> Float
 dist (Pair x1 y1) (Pair x2 y2) = sqrt ( (y2-y1)**2 + (x2-x1)**2 )
 
@@ -56,7 +56,7 @@ getYintercept _ Infinite = Undefined
 getYintercept (Pair x y) (Value m) = Intercept (y - m * x)
 
 -- 9
-data Figure = Place Shape Point deriving (Show)
+data Figure = Place Shape Point deriving (Eq,Show)
 move :: Float -> Float -> Figure -> Figure 
 move a b (Place s (Pair x y)) = Place s (Pair (a+x) (b+y))
 
@@ -64,7 +64,7 @@ move a b (Place s (Pair x y)) = Place s (Pair (a+x) (b+y))
 shape2figure :: Shape -> Point -> Figure
 shape2figure = Place
 
--- -- 11
+-- 11
 -- overlap :: Figure -> Figure -> Bool
 -- overlap 
 

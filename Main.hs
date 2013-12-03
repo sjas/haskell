@@ -233,13 +233,11 @@ main
     chkk (getYintercept (Pair 5 5) (Value 1)) (Intercept 0.0)
     chkk (getYintercept (Pair (-5) 25) (Value 0.5)) (Intercept 27.5)
     chkk (getYintercept (Pair 1 1) Infinite) Undefined
-
-    -- testcode not working due to missing 'instance Show' declaration, but implementation tested in REPL and proved to be correct
-    -- chkk (move 10 (-10) (Place (Rectangle 3 4) (Pair 0 0))) (Place (Rectangle 3.0 4.0) (Pair 10.0 (-10.0)))
-    -- chkk (move 10 (-10) (Place (Rectangle 3 4) (Pair 0 0))) (Place (Rectangle 3.0 4.0) (Pair 10.0 (-10.0)))
-    -- chkk (shape2figure (Circle pi) (Pair 1 1)) (Place (Circle 3.141593) (Pair 1.0 1.0))
-    -- chkk (shape2figure (Rectangle 1 3) (Pair 10 15)) (Place (Rectangle 1.0 3.0) (Pair 10.0 15.0))
-    -- chkk (move 5 5 (shape2figure (Rectangle 1 3) (Pair 10 15))) (Place (Rectangle 1.0 3.0) (Pair 15.0 20.0))
+    chkk (move 10 (-10) (Place (Rectangle 3 4) (Pair 0 0))) (Place (Rectangle 3.0 4.0) (Pair 10.0 (-10.0)))
+    chkk (move 10 (-10) (Place (Rectangle 3 4) (Pair 0 0))) (Place (Rectangle 3.0 4.0) (Pair 10.0 (-10.0)))
+    chkk (move 5 5 (shape2figure (Rectangle 1 3) (Pair 10 15))) (Place (Rectangle 1.0 3.0) (Pair 15.0 20.0))
+    chkk (shape2figure (Circle pi) (Pair 1 1)) (Place (Circle 3.1415927) (Pair 1.0 1.0))
+    chkk (shape2figure (Rectangle 1 3) (Pair 10 15)) (Place (Rectangle 1.0 3.0) (Pair 10.0 15.0))
 
 
     -- chkk (overlap (Place (Circle 1.414213) (Pair 0 0)) (Place (Circle 1.414213) (Pair 2 2))) False
