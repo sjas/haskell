@@ -66,6 +66,8 @@ shape2figure = Place
 
 -- 11
 overlap :: Figure -> Figure -> Bool
+-- TODO
+-- fix this. this is the worst exercise in the first three labs. by far.
 -- overlap (Place rect1 p1) (Place rect2 p2) = distCalc p1 p2 < rectCalc p2 p1 rect1 + rectCalc p1 p2 rect2
 -- overlap (Place (Circle r) p1) (Place rect p2) = distCalc p1 p2 < r + rectCalc p1 p2 rect
 overlap (Place (Circle r1) p1) (Place (Circle r2) p2) = distCalc p1 p2 < r1 + r2
@@ -82,7 +84,7 @@ distCalc (Pair x1 y1) (Pair x2 y2) = sqrt (getDist x1 x2 ** 2 + getDist y1 y2 **
 -- rectCalc (Pair x1 y1) (Pair x2 y2) (Rectangle l b) = 0
                                                      
 
--- 12 FIRST PART ===============================================================
+-- 12 FIRST PART 
 -- data Point = Pair Float Float deriving (Eq,Show)
 -- data Slope = Value Float | Infinite deriving (Eq, Show)
 data Direction = West | East | North | South deriving (Eq,Show)
@@ -97,14 +99,17 @@ adjust u@(Ufo p v@(Value _) direction s) = case direction of
                                         North -> Ufo p v East s
                                         South -> Ufo p v West s
                                         _ -> u
--- 12 SECOND PART ==============================================================
+-- 12 SECOND PART 
 data Time = Secs Float deriving (Show)
 predict :: UFO -> Time -> Point
 predict ufo = willBe (adjust ufo)
 willBe :: UFO -> Time -> Point
-willBe (Ufo (Pair x y) (Value v) East (Km k)) (Secs s) =  Pair (x + cos help*k*s) (y + sin help*k*s)
-                                                          where help = atan v
-willBe (Ufo (Pair x y) (Value v) West (Km k)) (Secs s) =  Pair (x - cos help*k*s) (y - sin help*k*s)
-                                                          where help = atan v
-willBe (Ufo (Pair x y) Infinite North (Km k)) (Secs s) = Pair x (y + k * s)
-willBe (Ufo (Pair x y) Infinite South (Km k)) (Secs s) = Pair x (y - k * s)
+willBe (Ufo (Pair x y) (Value v) direction (Km k)) (Secs s) = case direction of
+                                                                East -> Pair (x + f1) (y + f2)
+                                                                West -> Pair (x - f1) (y - f2)
+                                                                where
+                                                                  f1 = cos (atan v) * k * s
+                                                                  f2 = sin (atan v) * k * s
+willBe (Ufo (Pair x y) _ direction (Km k)) (Secs s) = case direction of
+                                                               North -> Pair x (y + k * s)
+                                                               South -> Pair x (y - k * s)
