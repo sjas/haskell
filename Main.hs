@@ -239,7 +239,7 @@ main
     chkk (shape2figure (Circle pi) (Pair 1 1)) (Place (Circle 3.1415927) (Pair 1.0 1.0))
     chkk (shape2figure (Rectangle 1 3) (Pair 10 15)) (Place (Rectangle 1.0 3.0) (Pair 10.0 15.0))
 
-
+    -- TODO
     chkk (overlap (Place (Circle 1.414213) (Pair 0 0)) (Place (Circle 1.414213) (Pair 2 2))) False
     -- chkk (overlap (Place (Rectangle 2 8) (Pair 5 0)) (Place (Circle 1) (Pair 0 0))) True
     chkk (overlap (Place (Circle 1.414214) (Pair 0 0)) (Place (Circle 1.414214) (Pair 2 2))) True
