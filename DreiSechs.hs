@@ -2,7 +2,7 @@
 -- lab 3.6
 --
 module DreiSechs where
-
+    
 data Tree a = Empty 
 	    | Leaf a 
 	    | Node a (Tree a) (Tree a) 
@@ -27,18 +27,16 @@ reflect (Leaf a) = Leaf a
 reflect (Node x a b) = Node x (reflect b) (reflect a)
 
 -- 4
+pre :: Tree a -> [a]
+pre (Leaf x) = [x]
+pre (Node x a b) = [x] ++ pre a ++ pre b
 traversal :: Tree a -> [a]
 traversal Empty = []
 traversal (Leaf x) = [x]
 traversal(Node x l r) = traversal l ++ [x] ++ traversal r
-
 post :: Tree a -> [a]
 post (Leaf x) = [x]
 post (Node x a b) = post a ++ post b ++ [x]
-
-pre :: Tree a -> [a]
-pre (Leaf x) = [x]
-pre (Node x a b) = [x] ++ pre a ++ pre b
                    
 -- 5
 normalise :: Tree a -> Tree a
@@ -47,26 +45,37 @@ normalise (Node x a b) = Node x (normalise a) (normalise b)
 normalise a = a
 
 -- 6
-natural :: Int -> Bool
+natural :: Integer -> Bool
 natural n = n >= 0
-plusOne :: Int -> Int
+plusOne :: Integer -> Integer
 plusOne x = x + 1
-
 mapTree :: (a -> b) -> Tree a -> Tree b
 mapTree _ Empty = Empty
 mapTree f (Leaf a) = Leaf (f a)
 mapTree f (Node x a b) = Node (f x) (mapTree f a) (mapTree f b)
 
 -- 7
--- TODO
--- fix this faulty implementation
 lists2tree :: Eq a => [a] -> [a] -> Tree a
 lists2tree [] _ = Empty
 lists2tree _ [] = Empty
-                 -- xs traversal
-                 -- ys pre
-lists2tree xs ys = Node (head xs) (lists2tree (tail xs) ys) (lists2tree (tail (tail xs)) ys)
-
--- chkk (lists2tree [1,2,3,4,5] [3,2,4,1,5]) Node 1 (Node 2 (Leaf 3) (Leaf 4)) (Leaf 5)
--- traversal(Node x l r) = traversal l ++ [x] ++ traversal r
--- pre (Node x a b) = [x] ++ pre a ++ pre b
+lists2tree (x:[]) (y:[]) | x == y = Leaf x
+                         | otherwise = Empty
+-- xs is traversal, ys is pre
+lists2tree (x:xs) ys = Node x (lists2tree (listDiff xs sh) fh) (lists2tree (listDiff xs fh) sh)
+                       where 
+                         fh = firstHalf x ys
+                         sh = secondHalf x ys
+firstHalf :: Eq a => a -> [a] -> [a]
+firstHalf _ [] = []
+firstHalf n (x:xs) | n == x = []
+                   | otherwise = x : firstHalf n xs
+secondHalf :: Eq a => a -> [a] -> [a]
+secondHalf n (x:xs) | n == x = xs
+                    | otherwise = secondHalf n xs
+listDiff :: Eq a => [a] -> [a] -> [a]
+listDiff [] _ = []
+listDiff xs [] = xs
+listDiff xs (y:ys) | y `elem` xs = listDiff (remElem y xs) ys
+                   | otherwise = listDiff xs ys
+remElem :: Eq a => a -> [a] -> [a]
+remElem x ys = [ y | y <- ys, x /= y ]

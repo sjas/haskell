@@ -264,6 +264,7 @@ main
     chkk (size2 (Lit2 10)) 0
     chkk (size2 (Op Sub2 (Op Add2 (Lit2 10) (Lit2 5)) (Lit2 1))) 2
          
+
     -- 3.4
     chkk (bEval (EQUAL (ILit 1) (SUB (ILit 2) (ILit 1)))) True
     chkk (iEval (IF (EQUAL (ILit 10) (ILit 10)) (ADD (ILit 1) (ILit 2)) (ILit 0))) 3
@@ -295,21 +296,16 @@ main
     chkk (normalise (Node 1 (Node 2 (Leaf 3) (Leaf 4)) (Leaf 5))) (Node 1 (Node 2 (Leaf 3) (Leaf 4)) (Leaf 5))
     chkk (mapTree natural (Node 1 (Node (-2) (Leaf 3) (Leaf 4)) (Leaf (-5)))) (Node True (Node False (Leaf True) (Leaf True)) (Leaf False))
     chkk (mapTree plusOne (Node 1 (Node (-2) (Leaf 3) (Leaf 4)) (Leaf (-5)))) (Node 2 (Node (-1) (Leaf 4) (Leaf 5)) (Leaf (-4)))
-    -- list2tree stuff
-    chkk (pre (Node 1 (Node 2 (Leaf 3) (Leaf 4)) (Leaf 5))) [1,2,3,4,5]
     chkk (traversal (Node 1 (Node 2 (Leaf 3) (Leaf 4)) (Leaf 5))) [3,2,4,1,5]
-    -- TODO
-    -- chkk (lists2tree [1,2,3,4,5] [3,2,4,1,5]) (Node 1 (Node 2 (Leaf 3) (Leaf 4)) (Leaf 5))
-    -- print (lists2tree [1,2,3,4,5] [3,2,4,1,5]) 
-    -- print (Node 1 (Node 2 (Leaf 3) (Leaf 4)) (Leaf 5))
-
+    chkk (lists2tree [1,2,3] [2,1,3]) (Node 1 (Leaf 2) (Leaf 3))
+    chkk (lists2tree [1,2,3,4,5] [3,2,4,1,5]) (Node 1 (Node 2 (Leaf 3) (Leaf 4)) (Leaf 5))
          
+
     -- 3.7
     chkk (leavesInGenTrees (GenLeaf 2)) 1
     chkk (leavesInGenTrees (GenNode [GenLeaf 33,GenLeaf 33, GenLeaf 33, GenLeaf 33])) 4
     chkk (leavesInGenTrees (GenNode [(GenNode [(GenNode [GenLeaf 3, GenLeaf 4, GenLeaf 5]), GenLeaf 3, GenLeaf 4, GenLeaf 5]), (GenNode [GenLeaf 3, GenLeaf 4, GenLeaf 5]), (GenNode [GenLeaf 3, GenLeaf 4, GenLeaf 5]), (GenNode [GenLeaf 3, GenLeaf 4, GenLeaf 5]), (GenNode [GenLeaf 3, GenLeaf 4, GenLeaf 5])])) 18
     
-          
 
     -- -- practice paper
     -- -- 1a
