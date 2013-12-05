@@ -1,5 +1,5 @@
 --
--- this file contains tests for the haskell files in the same folder.
+-- executes tests for the haskell files that lie within the same folder.
 --
 module Main (main) where
 
